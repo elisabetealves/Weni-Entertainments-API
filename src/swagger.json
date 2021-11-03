@@ -1,0 +1,585 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Weni Desafio Entertainments",
+        "description": "Essa é uma API para autores, músicas ",
+        "termsOfService": "http://localhost:7070/terms/",
+        "contact": {
+            "email": "lizzbeth.lizz.diaz@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:7070/",
+            "description": "API Weni Entertainments"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Artist",
+            "description": "Manipulation of Artist Routes"
+        },
+        {
+            "name": "Music",
+            "description": "Manipulation of Music Routes"
+        }
+    ],
+    "paths": {
+        "/artist/create": {
+            "post": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Create Artist",
+                "description": "Registration of Artists",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "ERROR",
+                        "content": {}
+                    },
+                    "200": {
+                        "description": "Artist created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "objetc",
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/artist/all": {
+            "get": {
+                "tags": [
+                    "Artist"
+                ],
+                "summary": "List all Artist",
+                "description": "List All Registered Artists",
+                "parameters": [
+                    {
+                        "name": "Artist",
+                        "description": "List All Registered Artists",
+                        "requestBody": {
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schemas/Artist"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "operaction performed sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/artist/name": {
+            "get": {
+                "tags": [
+                    "Artist"
+                ],
+                "summary": "Artist by Name",
+                "description": "Returns Artist by Name",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the artist",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "operaction performed sucessfully",
+                        "content": {
+                            "application/jsn": {
+                                "schema": {
+                                    "type": "objetc",
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/artist/{Id}": {
+            "get": {
+                "tags": [
+                    "Artist"
+                ],
+                "summary": "Search by ID",
+                "description": "Returns Artist by ID",
+                "parameters": [
+                    {
+                        "name": "Artist Id",
+                        "in": "path",
+                        "description": "Artist ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "operaction performed sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Artist"
+                ],
+                "summary": "Updates any part (separately) of a registared artist",
+                "requestBody": {
+                    "description": "Update of Artist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "atributo que será atualizado": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "Error",
+                        "content": {}
+                    },
+                    "200": {
+                        "description": "OK. Update performed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Artist"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            "delete": {
+                "tags": [
+                    "Artist"
+                ],
+                "summary": "Delect an artist",
+                "description": "Delects a specific artist by ID",
+                "parameters": [
+                    {
+                        "name": "Artist ID",
+                        "in": "path",
+                        "required": true,
+                        "description": "Artist ID to delete"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Artist deleted successfully",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "Artist cannot be found",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/music/create": {
+            "post": {
+                "tags": [
+                    "Musics"
+                ],
+                "summary": "Create a Music Collection",
+                "description": "Create Music ",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Music"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "ERROR",
+                        "content": {}
+                    },
+                    "200": {
+                        "description": "Music created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "objetc",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/music/{id}/like": {
+            "post": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Like a specific songo",
+                "description": "Give a like",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "like":{
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK. ",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "ERROR",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/music/{id}/dislike": {
+            "post": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Remove a like from a specific song",
+                "description": "Remove a like",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "dislike":{
+                                        "type": "number",
+                                        "description": "Number has to be negative"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK. ",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "ERROR",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/music/all": {
+            "get": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "List all music",
+                "description": "List All Registered Musics",
+                "parameters": [
+                    {
+                        "name": "Musics",
+                        "description": "List All Registered Musics",
+                        "requestBody": {
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/Music"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation performed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+        },
+        "/music/title": {
+            "get": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Artist by Title",
+                "description": "Returns Artist by Title",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Title of the music",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "operaction performed sucessfully",
+                        "content": {
+                            "application/jsn": {
+                                "schema": {
+                                    "type": "objetc",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/music/{id}": {
+            "get": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Search by ID",
+                "description": "Returns music by ID",
+                "parameters": [
+                    {
+                        "name": "Music Id",
+                        "in": "path",
+                        "description": "Music ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation performed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Update os a registered song data",
+                "requestBody": {
+                    "description": "Upadate the music entity",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Music"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "Error",
+                        "content": {}
+                    },
+                    "200": {
+                        "description": "OK. LMusic updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            "patch": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Updates any part (separately) of a registared music",
+                "requestBody": {
+                    "description": "Update music information",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "atributo que será atualizado": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "404": {
+                        "description": "Error",
+                        "content": {}
+                    },
+                    "200": {
+                        "description": "OK. Update performed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Music"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            "delete": {
+                "tags": [
+                    "Music"
+                ],
+                "summary": "Delect a music",
+                "description": "Delects a specific music by ID",
+                "parameters": [
+                    {
+                        "name": "Music Id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Music ID to delete"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Music deleted successfully",
+                        "content": {}
+                    },
+                    "404": {
+                        "description": "ERROR (Id cannot be found)",
+                        "content": {}
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Artist": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "contactPhone": {
+                        "type": "string"
+                    },
+                    "created_At": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Music": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "like": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "composer": {
+                        "type": "string"
+                    },
+                    "genre": {
+                        "type": "string"
+                    },
+                    "letter": {
+                        "type": "string"
+                    },
+                    "time": {
+                        "type": "number"
+                    },
+                    "created_At": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
