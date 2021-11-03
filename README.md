@@ -121,7 +121,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 | Método HTTP  | Endpoint              | Descrição                               |
 | ------------ | -------------------   | ------------------------------------    |
 | GET          | `/artist/all`         | Retorna todos os artistas               |
-| GET          | `/artist/nome`        | Retorna um artiata específico por nome  |
+| GET          | `/artist/name`        | Retorna um artiata específico por nome  |
 | GET          | `/artist/:id`         | Retorna um artista específico por id    |
 | POST         | `/artist/create`      | Cria/cadastra um novo artista           |
 | PATCH        | `/artist/:id`         | Altera informações de um artista        |
