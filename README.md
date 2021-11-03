@@ -46,11 +46,10 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 ### Pacotes Utilizados 
 
 - [Express](https://expressjs.com/pt-br/)
-- [Nodemon](https://nodemon.io/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [Mongoose](https://mongoosejs.com/)
 - [cors](https://www.npmjs.com/package/cors)
-- [modemon](https://www.npmjs.com/package/nodemon)
 - [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
 
 <br>
