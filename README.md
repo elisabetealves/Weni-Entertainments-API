@@ -265,7 +265,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 
 
 ## [Elisabete Alves](https://github.com/elisabetealves)
-## [LinkedIn](https://www.linkedin.com/mwlite/in/elisabete-alves-675637135) 
+## [LinkedIn](https://www.linkedin.com/in/elisabete-a-santos/) 
 
 <br>
  
