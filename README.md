@@ -129,7 +129,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 
 <br>
 
-## 🔃 Manipulação das Rotas de Livros:
+## 🔃 Manipulação das Rotas de Music:
 
 | Método HTTP  | Endpoint               | Descrição                                     |
 | ------------ | ---------------------- | --------------------------------------------- |
