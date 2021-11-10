@@ -264,7 +264,7 @@
                 "tags": [
                     "Music"
                 ],
-                "summary": "Like a specific songo",
+                "summary": "Like a specific song",
                 "description": "Give a like",
                 "requestBody": {
                     "content": {
@@ -371,8 +371,8 @@
                 "tags": [
                     "Music"
                 ],
-                "summary": "Artist by Title",
-                "description": "Returns Artist by Title",
+                "summary": "Music by Title",
+                "description": "Returns music by Title",
                 "parameters": [
                     {
                         "name": "title",
